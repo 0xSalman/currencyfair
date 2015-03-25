@@ -42,7 +42,7 @@ public class IndexController {
         processData();
         this.initialLoad = true;
 
-        LoggerUtil.logExit(IndexController.class, LogLevel.DEBUG, "loadData");
+        LoggerUtil.logExit(IndexController.class, LogLevel.INFO, "loadData");
 
         return "Success";
     }
@@ -56,7 +56,7 @@ public class IndexController {
 	@Scheduled(fixedDelay=5000)
 	public void sendNotifications() {
 
-        LoggerUtil.logEnter(IndexController.class, LogLevel.INFO, "sendNotifications");
+        LoggerUtil.logEnter(IndexController.class, LogLevel.DEBUG, "sendNotifications");
 
         if (initialLoad)
 			processData();

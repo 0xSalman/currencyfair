@@ -22,9 +22,7 @@ public class TradeEntity implements Serializable {
 	@Id
 	private String id;
 	private String userId;
-    @Indexed
 	private String currencyFrom;
-    @Indexed
 	private String currencyTo;
 	private BigDecimal amountSell;
 	private BigDecimal amountBuy;
