@@ -1,4 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{50} - %msg %n</pattern>
+		</encoder>
+	</appender>
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${logDir}/app.log</file>
 
@@ -11,11 +17,11 @@
 			<maxFileSize>10MB</maxFileSize>
 		</triggeringPolicy>
 		<encoder>
-			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{10} - %msg%n%rEx</pattern>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{35} - %msg %n</pattern>
 		</encoder>
 	</appender>
-<!--	<root level="DEBUG">
-		<appender-ref ref="FILE" />
+<!--	<root level="INFO">
+		<appender-ref ref="STDOUT" />
 	</root>-->
 	<logger name="com.lucidspring.currencyfair" level="DEBUG">
 		<appender-ref ref="FILE" />
