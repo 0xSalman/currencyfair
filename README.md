@@ -22,6 +22,7 @@ A small trade application for CurrencyFair interview test
 	D3.js
 
 ####Notes/Thoughts:
+
 	For consumer and processor, strategy pattern is employed to use bean name configured in application.properties at run time. This adds the flexibility to implement more implementations and switch between them at run time. The following keys need to be configured in application.properties (the value should match some bean name that implements the Consumer/Processor interface):
 		```app.tradeConsumer
 		 app.tradeProcessor```
