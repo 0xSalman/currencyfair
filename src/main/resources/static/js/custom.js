@@ -1,6 +1,6 @@
 app = {
 
-    isMapReady : true,
+    isMapReady : false,
 
     connect : function() {
 
@@ -10,17 +10,20 @@ app = {
             // pull data initially
             app.loadData();
 
+	        var error = '<div class="error">Did not find any data</div>';
+
             // set up websocket subscribers
             stompClient.subscribe('/topic/currencyAggregate', function (serverResponse) {
                 var data = JSON.parse(serverResponse.body);
                 data.forEach(function(d) {
                     d.tradeCount = +d.tradeCount;
                 });
-
-                if (data) {
+                if (data.length != 0) {
+	                $('.error').remove();
                     app.drawPieChart(data);
                 } else {
-                    $('#pie').html('Did not find any data');
+	                $('#pie').html(error);
+
                 }
             });
             stompClient.subscribe('/topic/countryAggregate', function (serverResponse) {
@@ -32,10 +35,12 @@ app = {
                     })
                 });
 
-                if (data) {
+                if (data.length != 0) {
+	                $('.error').remove();
                     app.drawWorldMap(data);
                 } else {
-                    $('#globalMap').html('Did not find any data');
+	                $('#globalMap').html(error);
+	                app.isMapReady = false;
                 }
             });
         });
