@@ -2,7 +2,12 @@ package com.lucidspring.currencyfair.test.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.maps.GeoApiContext;
+import com.google.maps.GeocodingApi;
+import com.google.maps.model.GeocodingResult;
+import com.google.maps.model.LatLng;
 import com.lucidspring.currencyfair.entity.TradeEntity;
+import org.springframework.data.geo.Point;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -24,6 +29,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Common {
+
+	private static final String GOOGLE_API_KEY = "AIzaSyC8AAkfoIlqIQEJZXkujCUlO-kvuHkx6OU";
+	private static GeoApiContext context = new GeoApiContext().setApiKey(GOOGLE_API_KEY);
 
     public static byte[] convertObjectToJsonBytes(Object object) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -88,10 +96,10 @@ public class Common {
         return tradeData;
     }
 
-    public static void loginAndSaveJsessionIdCookie(final String user, final String password,
-                                                     final HttpHeaders httpHeaders) {
+    public static void loginAndSaveJsessionIdCookie(final String baseUrl, final String user, final String password,
+                                                    final HttpHeaders httpHeaders) {
 
-        String url = "http://localhost:8080/login";
+        String url = baseUrl + "/login";
 
         new RestTemplate().execute(url, HttpMethod.POST,
                                    new RequestCallback() {
@@ -112,4 +120,19 @@ public class Common {
                                        }
                                    });
     }
+
+	public static Point getCords(String address) throws Exception {
+
+		GeocodingResult[] results = GeocodingApi.geocode(context, address).await();
+		Point point;
+		if (results.length > 0) {
+			LatLng latLng = results[0].geometry.location;
+			point = new Point(latLng.lng, latLng.lat);
+		} else {
+			point = new Point(0, 0);
+		}
+
+//        logger.debug("Point={}", point);
+		return point;
+	}
 }

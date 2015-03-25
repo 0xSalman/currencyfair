@@ -24,7 +24,7 @@ public class IndexControllerTest {
 		System.out.println("loadData() - Start");
 
         HttpHeaders httpHeaders = new HttpHeaders();
-        Common.loginAndSaveJsessionIdCookie("test", "currencyfair", httpHeaders);
+        Common.loginAndSaveJsessionIdCookie("http://localhost:8080", "test", "currencyfair", httpHeaders);
         HttpEntity httpEntity = new HttpEntity(httpHeaders);
 
         RestTemplate restTemplate = new RestTemplate();

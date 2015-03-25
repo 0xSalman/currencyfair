@@ -14,11 +14,23 @@ import static org.springframework.test.util.MatcherAssertionErrors.assertThat;
 
 public class ConsumerTest {
 
-	private final String URL = "http://localhost:8080/sendTrade";
-	private final int RECORDS = 50000;
+	private final int RECORDS = 500;
 
 	@Test
-	public void postTrades() {
+	public void postTradesLocal() {
+
+		String url = "http://localhost:8080/sendTrade";
+		postTrades(url);
+	}
+
+	@Test
+	public void postTradesServer() {
+
+		String url = "http://currencyfair.mybluemix.net/sendTrade";
+		postTrades(url);
+	}
+
+	private void postTrades(String url) {
 
 		RestTemplate restTemplate = new RestTemplate();
 		List<TradeEntity> tradeData = Common.data(RECORDS);
@@ -26,7 +38,7 @@ public class ConsumerTest {
 		long startTime = System.currentTimeMillis();
 
 		for (TradeEntity tradeEntity : tradeData) {
-			ResponseEntity<String> response = restTemplate.postForEntity(URL, tradeEntity, String.class);
+			ResponseEntity<String> response = restTemplate.postForEntity(url, tradeEntity, String.class);
 			assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
 		}
 
