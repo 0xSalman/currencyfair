@@ -1,0 +1,5 @@
+### Exclude IDE files and target
+*.iml
+target
+.idea
+logs

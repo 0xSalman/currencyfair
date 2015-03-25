@@ -1,0 +1,53 @@
+body {
+	font: 12px sans-serif;
+	text-rendering: optimizelegibility;
+}
+.arc path {
+	stroke: #fff;
+}
+.arc:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+.datamap {
+	overflow: hidden;
+	stroke: #FFFFFF;
+	stroke-width: 1px;
+}
+.datamaps-subunit {
+	fill: rgb(171, 221, 164);
+	stroke-width: 1px;
+	stroke: rgb(253, 253, 253);
+}
+.datamaps-subunit:hover {
+	fill: #FF720A;
+	cursor: pointer;
+}
+.datamaps-bubble {
+	stroke: rgb(255, 255, 255);
+	stroke-width: 2px;
+	fill-opacity: 0.75;
+	fill: rgba(255, 215, 0, 0.952941);
+}
+.datamaps-bubble:hover {
+	fill: #FF720A;
+	cursor: pointer;
+}
+.popover-title {
+	background-color: #BCC3CA;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Verdana, serif;
+}
+.popover-content {
+	background-color: #EDEFF1;
+}
+.popover-content span {
+	font-weight: bold;
+}
+.popover-content div {
+	padding-bottom: 5px;
+}
+hr {
+	border-bottom: 1px solid #BCC3CA;
+}

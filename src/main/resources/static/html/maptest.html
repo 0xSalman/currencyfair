@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>D3 SVG Geographic Map</title>
+	<meta charset="utf-8">
+	<link rel="import" href="templates/d3-geomap.html">
+</head>
+<body>
+	<h1>Markers and Bubbles</h1>
+	<template is="auto-binding">
+		<d3-geomap markerHoverTemplate="markerhovertemplate">
+			<fill name="MINE" color="rgba(255,215,0,0.95)"></fill>
+			<marker
+					name="Grasberg"
+					country="Indonesia"
+					radius="36"
+					reserves="106.231"
+					latitude="-4.0310"
+					longitude="137.0657"
+					fillkey="MINE"
+					></marker>
+			<template id="markerhovertemplate">
+				<div style="
+					border-radius: 3px;
+					background-color: #FFF;
+					box-shadow: 1px 1px 5px #CCC;
+					font-size: 12px;
+					border: 1px solid #CCC;
+					font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				">
+					<table>
+						<tr>
+							<td style="vertical-align:top;padding-right:10px;">
+								<strong>{{hover.name}}</strong><br>
+								{{hover.data.country}}<br>
+								<span style="text-decoration:underline">Gold Reserves</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: center;height:100%;font-weight:bold;font-size:larger">
+								{{hover.data.reserves}} M Oz
+							</td>
+						</tr>
+					</table>
+				</div>
+			</template>
+		</d3-geomap>
+	</template>
+</body>
+</html>

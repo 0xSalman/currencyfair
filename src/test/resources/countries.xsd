@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="geonames" type="geonamesType"/>
+  <xs:complexType name="geonamesType">
+    <xs:sequence>
+      <xs:element type="countryType" name="country" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="countryType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="countryCode"/>
+      <xs:element type="xs:string" name="countryName"/>
+      <xs:element type="xs:string" name="isoNumeric"/>
+      <xs:element type="xs:string" name="isoAlpha3"/>
+      <xs:element type="xs:string" name="fipsCode"/>
+      <xs:element name="continent">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="EU"/>
+            <xs:enumeration value="AS"/>
+            <xs:enumeration value="NA"/>
+            <xs:enumeration value="AF"/>
+            <xs:enumeration value="AN"/>
+            <xs:enumeration value="SA"/>
+            <xs:enumeration value="OC"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="continentName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Europe"/>
+            <xs:enumeration value="Asia"/>
+            <xs:enumeration value="North America"/>
+            <xs:enumeration value="Africa"/>
+            <xs:enumeration value="Antarctica"/>
+            <xs:enumeration value="South America"/>
+            <xs:enumeration value="Oceania"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="capital"/>
+      <xs:element type="xs:string" name="areaInSqKm"/>
+      <xs:element type="xs:string" name="population"/>
+      <xs:element type="xs:string" name="currencyCode"/>
+      <xs:element type="xs:string" name="languages"/>
+      <xs:element type="xs:string" name="geonameId"/>
+      <xs:element type="xs:string" name="west"/>
+      <xs:element type="xs:string" name="north"/>
+      <xs:element type="xs:string" name="east"/>
+      <xs:element type="xs:string" name="south"/>
+      <xs:element type="xs:string" name="postalCodeFormat"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

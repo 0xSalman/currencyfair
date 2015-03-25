@@ -1,0 +1,60 @@
+{
+  "name": "disasterapp",
+  "version": "1.0",
+  "description": "Display Canadian disasters which have happened within last century",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap": "latest",
+    "stomp-websocket": "latest",
+    "sockjs": "latest",
+    "d3": "latest",
+	"topojson": "latest"
+  },
+  "cInstall": {
+    "folder": {
+      "js, map": "js/",
+      "css": "css/",
+      "otf, eot, svg, ttf, woff, woff2": "fonts/",
+	  "html": "css/templates/",
+	  "json": "datamaps/"
+    },
+    "option": {
+      "default": {
+        "folder": "src/main/resources/static"
+      }
+    },
+    "source": {
+      "bootstrap": {
+        "glyphicons-halflings-regular.*": "dist/fonts/*",
+        "bootstrap.min.js": "dist/js/bootstrap.min.js",
+        "bootstrap.min.css": "dist/css/bootstrap.min.css",
+        "bootstrap-theme.min.css": "dist/css/bootstrap-theme.min.css"
+      },
+      "jquery": {
+        "jquery.min.js": "dist/jquery.min.js",
+        "jquery.min.map": "dist/jquery.min.map"
+      },
+      "sockjs": {
+        "sockjs.min.js": "sockjs.min.js"
+      },
+      "stomp-websocket": {
+        "stomp.min.js": "lib/stomp.min.js"
+      },
+      "d3": {
+        "d3.min.js": "d3.min.js"
+      },
+	  "topojson": {
+		"topojson.js": "topojson.js"
+	  }
+    }
+  }
+}
