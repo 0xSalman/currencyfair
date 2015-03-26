@@ -16,7 +16,7 @@ public class ConsumerTest {
 
 	private final int RECORDS = 50000;
 
-//	@Test
+	@Test
 	public void postTradesLocal() {
 
 		String url = "http://localhost:8080/sendTrade";
