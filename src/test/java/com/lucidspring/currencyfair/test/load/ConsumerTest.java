@@ -14,9 +14,9 @@ import static org.springframework.test.util.MatcherAssertionErrors.assertThat;
 
 public class ConsumerTest {
 
-	private final int RECORDS = 500;
+	private final int RECORDS = 50000;
 
-	@Test
+//	@Test
 	public void postTradesLocal() {
 
 		String url = "http://localhost:8080/sendTrade";
@@ -26,7 +26,7 @@ public class ConsumerTest {
 	@Test
 	public void postTradesServer() {
 
-		String url = "http://currencyfair.mybluemix.net/sendTrade";
+		String url = "http://45.33.82.10:8080/sendTrade";
 		postTrades(url);
 	}
 
