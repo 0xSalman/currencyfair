@@ -6,10 +6,10 @@
 		</encoder>
 	</appender>
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${logDir}/currencyfair_app.log</file>
+		<file>${logDir}/currencyfair-app.log</file>
 
 		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-			<fileNamePattern>${logDir}/currencyfair_app.%i.log</fileNamePattern>
+			<fileNamePattern>${logDir}/currencyfair-app.%i.log</fileNamePattern>
 			<minIndex>1</minIndex>
 			<maxIndex>5</maxIndex>
 		</rollingPolicy>
