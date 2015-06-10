@@ -1,4 +1,4 @@
-A small trade application for CurrencyFair interview test
+A small trade application
 
 Demo URL: http://currencyfair.lucidspring.com/
 
