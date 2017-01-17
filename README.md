@@ -1,7 +1,5 @@
 A small trade application
 
-Demo URL: http://currencyfair.lucidspring.com/
-
 ####Application Workflow:
 
 	1. Attempt to receive large number of trade messages in JSON format using Akka/MQ
